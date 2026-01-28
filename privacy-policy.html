@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדיניות פרטיות - אוטומטיק גרוסרי</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .privacy-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .privacy-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .privacy-header p {
+            font-size: 1.1rem;
+            color: #718096;
+        }
+
+        .privacy-content {
+            line-height: 1.8;
+        }
+
+        .privacy-content h2 {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding-right: 20px;
+            border-right: 5px solid #667eea;
+        }
+
+        .privacy-content h3 {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .privacy-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .privacy-content ul, .privacy-content ol {
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        .privacy-content li {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: #f7fafc;
+            border-right: 5px solid #667eea;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .highlight-box h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .back-home a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-home a:hover {
+            color: #764ba2;
+        }
+
+        .back-home i {
+            margin-right: 8px;
+        }
+
+        .footer-section {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+
+        .footer-section h5 {
+            color: #f7fafc;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-section i {
+            margin-left: 10px;
+        }
+
+        .copyright {
+            border-top: 1px solid #4a5568;
+            padding-top: 30px;
+            margin-top: 30px;
+            text-align: center;
+            color: #a0aec0;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-wrapper {
+                padding: 40px 25px;
+                margin-top: 20px;
+            }
+            
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .privacy-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .privacy-content p,
+            .privacy-content li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="privacy-wrapper">
+            <!-- Header -->
+            <div class="privacy-header">
+                <h1>מדיניות פרטיות</h1>
+                <p>עודכן לאחרונה: ינואר 2026</p>
+            </div>
+
+            <!-- Content -->
+            <div class="privacy-content">
+                <h2>1. כללי</h2>
+                <p>
+                    ברוכים הבאים למדיניות הפרטיות של אוטומטיק גרוסרי ("החברה", "אנו", "שלנו"). אנו מחויבים להגן על פרטיות המשתמשים שלנו ולספק שקיפות מלאה לגבי איסוף, שימוש ושיתוף של מידע אישי. מדיניות פרטיות זו מתארת את נוהלי הפרטיות שלנו בקשר לשימוש באפליקציה ובשירותים שלנו.
+                </p>
+
+                <h2>2. מידע שאנו אוספים</h2>
+                <h3>2.1 מידע שאתה מספק לנו</h3>
+                <ul>
+                    <li><strong>פרטי הרשמה:</strong> שם, כתובת דואר אלקטרוני, מספר טלפון, כתובת למשלוח</li>
+                    <li><strong>פרטי תשלום:</strong> פרטי כרטיס אשראי או אמצעי תשלום אחרים (מאובטחים באמצעות ספקי שירות חיצוניים)</li>
+                    <li><strong>היסטוריית הזמנות:</strong> רשימת מוצרים שהזמנת, תאריכים וכמויות</li>
+                    <li><strong>העדפות משתמש:</strong> העדפות מוצרים, רשימות קניות, הערות מיוחדות</li>
+                </ul>
+
+                <h3>2.2 מידע שנאסף באופן אוטומטי</h3>
+                <ul>
+                    <li><strong>מידע טכני:</strong> כתובת IP, סוג דפדפן, מערכת הפעלה, מזהה מכשיר</li>
+                    <li><strong>נתוני שימוש:</strong> דפים שבקרת, זמן השהייה באפליקציה, אינטראקציות עם התכונות</li>
+                    <li><strong>מידע מיקום:</strong> מיקום כללי (עיר, אזור) לצורך אספקת שירות מדויק</li>
+                    <li><strong>Cookies:</strong> קבצים קטנים המאוחסנים במכשיר שלך לשיפור חווית המשתמש</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3><i class="fa fa-shield"></i> הבטחת הגנה</h3>
+                    <p>
+                        כל המידע האישי שלך מוצפן ומאוחסן בשרתים מאובטחים. אנו משתמשים בפרוטוקולי אבטחה מתקדמים כדי להגן על הנתונים שלך מפני גישה לא מורשית.
+                    </p>
+                </div>
+
+                <h2>3. כיצד אנו משתמשים במידע</h2>
+                <p>אנו משתמשים במידע שנאסף למטרות הבאות:</p>
+                <ol>
+                    <li><strong>עיבוד הזמנות:</strong> לאישור ועיבוד ההזמנות שלך ולספק שירותי משלוח</li>
+                    <li><strong>שיפור שירות:</strong> להבין כיצד משתמשים משתמשים באפליקציה ולשפר את חווית המשתמש</li>
+                    <li><strong>תקשורת:</strong> לשלוח לך עדכונים על הזמנות, מבצעים והודעות שירות</li>
+                    <li><strong>התאמה אישית:</strong> להציע המלצות מוצרים מותאמות אישית</li>
+                    <li><strong>אבטחה:</strong> לזהות ולמנוע פעילות הונאה או לא מורשית</li>
+                    <li><strong>עמידה בחוק:</strong> לעמוד בדרישות חוקיות ורגולטוריות</li>
+                </ol>
+
+                <h2>4. שיתוף מידע עם צדדים שלישיים</h2>
+                <p>אנו עשויים לשתף את המידע שלך עם:</p>
+                <ul>
+                    <li><strong>ספקי שירות:</strong> חברות שמסייעות לנו באספקה, עיבוד תשלומים, ושירותי טכנולוגיה</li>
+                    <li><strong>שותפים עסקיים:</strong> חנויות ספציפיות שמהן מבוצעות הקניות</li>
+                    <li><strong>רשויות חוקיות:</strong> כאשר נדרש על פי חוק או לצורך הגנה על זכויותינו</li>
+                </ul>
+                <p>
+                    אנו מבטיחים כי כל צד שלישי שאנו עובדים איתו מחויב לשמור על פרטיותך ולהשתמש במידע רק למטרות שאושרו.
+                </p>
+
+                <h2>5. שמירה על מידע</h2>
+                <p>
+                    אנו שומרים את המידע האישי שלך כל עוד חשבונך פעיל או כל עוד נדרש לספק לך שירותים. בנוסף, אנו עשויים לשמור מידע לפי דרישות חוק או לצרכים עסקיים לגיטימיים.
+                </p>
+
+                <h2>6. זכויותיך</h2>
+                <p>כמשתמש, יש לך את הזכויות הבאות בנוגע למידע האישי שלך:</p>
+                <ul>
+                    <li><strong>גישה:</strong> לבקש עותק של המידע האישי שיש לנו עליך</li>
+                    <li><strong>תיקון:</strong> לבקש לתקן מידע לא מדויק או לא שלם</li>
+                    <li><strong>מחיקה:</strong> לבקש למחוק את המידע האישי שלך ("הזכות להישכח")</li>
+                    <li><strong>הגבלה:</strong> לבקש להגביל את השימוש במידע שלך</li>
+                    <li><strong>העברה:</strong> לקבל את המידע שלך בפורמט מובנה ונפוץ</li>
+                    <li><strong>התנגדות:</strong> להתנגד לשימוש במידע שלך לצרכי שיווק</li>
+                </ul>
+
+                <h2>7. אבטחת מידע</h2>
+                <p>
+                    אנו נוקטים באמצעים טכניים וארגוניים מתאימים כדי להגן על המידע האישי שלך מפני אובדן, שימוש לרעה, גישה לא מורשית, גילוי, שינוי או השמדה. זה כולל:
+                </p>
+                <ul>
+                    <li>הצפנת SSL/TLS לכל העברות הנתונים</li>
+                    <li>אימות דו-שלבי לחשבונות משתמשים</li>
+                    <li>גיבויים קבועים של מסדי נתונים</li>
+                    <li>ניטור אבטחה רציף וגילוי חדירות</li>
+                    <li>הגבלת גישה למידע רק לעובדים מורשים</li>
+                </ul>
+
+                <h2>8. שימוש בקוקיז (Cookies)</h2>
+                <p>
+                    אנו משתמשים בקוקיז ובטכנולוגיות דומות כדי לשפר את חווית המשתמש שלך. קוקיז הם קבצים קטנים המאוחסנים במכשיר שלך המאפשרים לנו לזהות אותך ולזכור את העדפותיך.
+                </p>
+                <p>
+                    אתה יכול לשלוט בשימוש בקוקיז דרך הגדרות הדפדפן שלך. עם זאת, חסימת קוקיז מסוימים עשויה להשפיע על הפונקציונליות של האפליקציה.
+                </p>
+
+                <h2>9. קישורים לאתרים אחרים</h2>
+                <p>
+                    האפליקציה שלנו עשויה להכיל קישורים לאתרים או שירותים של צדדים שלישיים. אנו לא אחראים על נוהלי הפרטיות של אתרים אלה. אנו ממליצים לך לקרוא את מדיניות הפרטיות של כל אתר שאתה מבקר בו.
+                </p>
+
+                <h2>10. פרטיות ילדים</h2>
+                <p>
+                    השירות שלנו אינו מיועד לאנשים מתחת לגיל 18. אנו לא אוספים ביודעין מידע אישי מילדים. אם אתה הורה או אפוטרופוס וגילית שילדך סיפק לנו מידע אישי, אנא צור איתנו קשר.
+                </p>
+
+                <h2>11. שינויים במדיניות הפרטיות</h2>
+                <p>
+                    אנו עשויים לעדכן את מדיניות הפרטיות שלנו מעת לעת. נודיע לך על כל שינוי מהותי באמצעות הודעה באפליקציה או באמצעות דואר אלקטרוני. אנו ממליצים לך לעיין במדיניות זו מעת לעת כדי להישאר מעודכן.
+                </p>
+
+                <div class="contact-box">
+                    <h3><i class="fa fa-envelope"></i> יש לך שאלות?</h3>
+                    <p>אם יש לך שאלות או חששות בנוגע למדיניות הפרטיות שלנו או לטיפול במידע האישי שלך, אנא צור איתנו קשר:</p>
+                    <p>
+                        <i class="fa fa-envelope"></i> <a href="mailto:privacy@hagrocery.co.il">privacy@hagrocery.co.il</a><br>
+                        <i class="fa fa-phone"></i> <a href="tel:+972501234567">050-123-4567</a>
+                    </p>
+                </div>
+
+                <h2>12. הסכמה</h2>
+                <p>
+                    על ידי שימוש באפליקציה ובשירותים שלנו, אתה מסכים למדיניות פרטיות זו ולאיסוף ושימוש במידע כפי שמתואר במסמך זה. אם אינך מסכים למדיניות זו, אנא הימנע משימוש באפליקציה.
+                </p>
+
+                <div class="back-home">
+                    <a href="index.html">
+                        <i class="fa fa-arrow-left"></i> חזרה לדף הבית
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>קישורים שימושיים</h5>
+                    <ul>
+                        <li><a href="index.html"><i class="fa fa-home"></i> בית</a></li>
+                        <li><a href="contactus.html"><i class="fa fa-envelope"></i> צרו קשר</a></li>
+                        <li><a href="privacy-policy.html"><i class="fa fa-shield"></i> מדיניות פרטיות</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>צרו קשר</h5>
+                    <ul>
+                        <li>
+                            <a href="https://wa.me/message/J5IJ37I2VZ4LE1" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Whatsapp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@hagrocery.co.il">
+                                <i class="fa fa-envelope"></i> support@hagrocery.co.il
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>עקבו אחרינו</h5>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © Automatic Grocery Ltd.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
