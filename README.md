@@ -194,7 +194,7 @@ class GroceryDownloadController(http.Controller):
 - ✅ Mobile browsers (iOS/Android)
 
 ### 🎨 עיצוב וצבעים / Design & Colors
-- **צבע ראשי:** Gradient #667eea → #764ba2
+- **צבע ראשי:** Gradient #667eea → #7ba72a
 - **פונט:** Segoe UI, Tahoma, Geneva, Verdana
 - **כיווניות:** RTL (Right to Left)
 - **מרווחים:** Bootstrap 5.1.3
