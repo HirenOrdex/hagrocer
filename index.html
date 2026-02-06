@@ -1,462 +1,698 @@
-<!doctype html>
-<html lang="he" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>דף הבית - אוטומטיק גרוסרי</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch Device Manager</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    .admin-panel {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      margin-top: 30px;
+    }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        direction: rtl;
-        text-align: right;
-        background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
-        min-height: 100vh;
-      }
+    .admin-panel h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 10px;
+      text-align: center;
+    }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
+    .admin-panel h2 i {
+      color: #7ba72a;
+      margin-right: 15px;
+    }
+
+    .help-link {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .help-link a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .help-link a:hover {
+      color: #7ba72a;
+    }
+
+    .section-card {
+      background: #f7fafc;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-card h3 {
+      font-size: 1.5rem;
+      color: #2d3748;
+      margin-bottom: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-card h3 i {
+      color: #7ba72a;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      border: 2px solid #e2e8f0;
+      padding: 12px 20px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .form-control:focus {
+      border-color: #7ba72a;
+      box-shadow: 0 0 0 0.2rem rgba(123, 167, 42, 0.25);
+      outline: none;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field label {
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-field small {
+      color: #718096;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    .btn-custom-primary {
+      background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(123, 167, 42, 0.3);
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn-custom-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(123, 167, 42, 0.4);
+    }
+
+    .btn-custom-secondary {
+      background: white;
+      border: 2px solid #667eea;
+      color: #667eea;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn-custom-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-edit {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-edit:hover {
+      background: #7ba72a;
+      transform: translateY(-2px);
+    }
+
+    .status-badge {
+      background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(123, 167, 42, 0.4);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .table-responsive {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      background: white;
+      margin: 0;
+    }
+
+    th {
+      background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    tr:hover {
+      background: #f7fafc;
+    }
+
+    td input {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    td input:focus {
+      outline: none;
+      border-color: #7ba72a;
+      box-shadow: 0 0 0 0.2rem rgba(123, 167, 42, 0.25);
+    }
+
+    .qr-code-cell {
+      text-align: center;
+    }
+
+    .qr-code-small {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-code-small:hover {
+      transform: scale(1.1);
+    }
+
+    .qr-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qr-modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .qr-modal-content h4 {
+      margin-bottom: 20px;
+      color: #2d3748;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .admin-panel {
         padding: 20px;
       }
 
-      .hero-section {
-        background: white;
-        border-radius: 20px;
-        padding: 80px 50px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        margin-top: 50px;
-        margin-bottom: 50px;
-        text-align: center;
-      }
-
-      .hero-section h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        color: #2d3748;
-        margin-bottom: 20px;
-        background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .hero-section .subtitle {
+      .admin-panel h2 {
         font-size: 1.8rem;
-        color: #4a5568;
-        margin-bottom: 40px;
-        font-weight: 300;
       }
 
-      .hero-section .lead {
-        font-size: 1.3rem;
-        color: #718096;
-        margin-bottom: 50px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
-      .app-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 50px 0;
+      table {
+        font-size: 0.85rem;
       }
 
-      .app-button {
-        background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
-        color: white;
-        padding: 20px 50px;
-        border-radius: 50px;
-        font-size: 1.3rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
+      td input {
+        font-size: 0.85rem;
+        padding: 6px 10px;
       }
+    }
+  </style>
+</head>
+<body>
 
-      .app-button:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
-        color: white;
-      }
+<div class="container">
+  <div class="admin-panel">
+    <h2><i class="fas fa-plug"></i> Switch Device Manager</h2>
+    
+    <div class="help-link">
+      <a href="http://localhost:4000/doc" target="_blank">
+        <i class="fas fa-book"></i> Help / User Guide
+      </a>
+    </div>
 
-      .app-button i {
-        font-size: 2rem;
-      }
-
-      .features-section {
-        background: white;
-        border-radius: 20px;
-        padding: 60px 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        margin-bottom: 50px;
-      }
-
-      .features-section h2 {
-        font-size: 2.5rem;
-        color: #2d3748;
-        text-align: center;
-        margin-bottom: 50px;
-        font-weight: 700;
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-top: 40px;
-      }
-
-      .feature-card {
-        text-align: center;
-        padding: 40px 30px;
-        background: #f7fafc;
-        border-radius: 15px;
-        transition: all 0.3s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-      }
-
-      .feature-icon {
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 25px;
-      }
-
-      .feature-icon i {
-        font-size: 3rem;
-        color: white;
-      }
-
-      .feature-card h3 {
-        font-size: 1.5rem;
-        color: #2d3748;
-        margin-bottom: 15px;
-        font-weight: 600;
-      }
-
-      .feature-card p {
-        font-size: 1.1rem;
-        color: #718096;
-        line-height: 1.8;
-      }
-
-      .cta-section {
-        background: linear-gradient(135deg, #7ba72a 0%, #c4e538 100%);
-        color: white;
-        padding: 60px 40px;
-        border-radius: 20px;
-        text-align: center;
-        margin-bottom: 50px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-
-      .cta-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-      }
-
-      .cta-section p {
-        font-size: 1.3rem;
-        margin-bottom: 40px;
-      }
-
-      .cta-button {
-        background: white;
-        color: #667eea;
-        padding: 20px 60px;
-        border-radius: 50px;
-        font-size: 1.3rem;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-block;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-      }
-
-      .cta-button:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(255, 255, 255, 0.5);
-        color: #7ba72a;
-      }
-
-      .footer-section {
-       background: linear-gradient(135deg, #1b2a0b, #7ba72a);
-        color: #e2e8f0;
-        padding: 50px 0;
-        margin-top: 80px;
-      }
-
-      .footer-section h5 {
-        color: #f7fafc;
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        font-weight: 600;
-      }
-
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .footer-section ul li {
-        margin-bottom: 12px;
-      }
-
-      .footer-section a {
-        color: #cbd5e0;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .footer-section a:hover {
-        color: #ffffff; /* Hover bright white for contrast */
-      }
-
-      .footer-section i {
-        margin-left: 10px;
-      }
-
-      .copyright {
-        border-top: 1px solid rgba(255, 255, 255, 0.2); /* subtle border for contrast */
-        padding-top: 30px;
-        margin-top: 30px;
-        text-align: center;
-        color: #a0aec0;
-      }
-
-      @media (max-width: 768px) {
-        .hero-section {
-          padding: 50px 25px;
-          margin-top: 20px;
-        }
-
-        .hero-section h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero-section .subtitle {
-          font-size: 1.3rem;
-        }
-
-        .hero-section .lead {
-          font-size: 1.1rem;
-        }
-
-        .app-button {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .features-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Hero Section -->
-      <div class="hero-section">
-        <h1>אוטומטיק גרוסרי</h1>
-        <div class="subtitle">קניות מכולת חכמות ונוחות</div>
-        <p class="lead">
-          הפתרון המושלם לקניות מכולת מהירות ונוחות. הזמינו מהחנויות האהובות
-          עליכם וקבלו את המשלוח עד הבית בזמן הקצר ביותר.
-        </p>
-
-        <div class="app-buttons">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.automaticgrocery"
-            target="_blank"
-            class="app-button"
-          >
-            <i class="fa-brands fa-google-play"></i>
-            הורד מ-Google Play
-          </a>
-          <a
-            href="https://apps.apple.com/app/%D7%94%D7%92%D7%A8%D7%95%D7%A1%D7%A8%D7%99/id6501989391"
-            target="_blank"
-            class="app-button"
-          >
-            <i class="fa-brands fa-apple"></i>
-            הורד מ-App Store
-          </a>
-        </div>
+    <!-- Database Connection Section -->
+    <div class="section-card">
+      <h3><i class="fas fa-database"></i> 1. Connect to MongoDB</h3>
+      
+      <div class="form-field">
+        <label for="mongoUrl">MongoDB Connection URL *</label>
+        <input type="text" 
+               class="form-control" 
+               id="mongoUrl" />
+        <small>Enter your MongoDB URL without the database name (e.g., mongodb://localhost:27017)</small>
       </div>
-
-      <!-- Features Section -->
-      <div class="features-section">
-        <h2>למה לבחור באוטומטיק גרוסרי?</h2>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-bolt"></i>
-            </div>
-            <h3>משלוח מהיר</h3>
-            <p>
-              קבלו את ההזמנה שלכם תוך פחות משעה. אנחנו עובדים עם חנויות מקומיות
-              כדי להבטיח את המשלוח המהיר ביותר.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-store"></i>
-            </div>
-            <h3>מגוון חנויות</h3>
-            <p>
-              בחרו מבין עשרות חנויות מכולת, סופרמרקטים ומינימרקטים באזור שלכם.
-              כל החנויות האהובות עליכם במקום אחד.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-tags"></i>
-            </div>
-            <h3>מחירים משתלמים</h3>
-            <p>
-              המחירים זהים לאלו בחנות. אנחנו לא מוסיפים עמלות נסתרות, רק דמי
-              משלוח סימבוליים.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-mobile-alt"></i>
-            </div>
-            <h3>קל לשימוש</h3>
-            <p>
-              ממשק פשוט ואינטואיטיבי שמאפשר לכם להזמין תוך דקות ספורות. גם אם זו
-              הפעם הראשונה שלכם.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-clock"></i>
-            </div>
-            <h3>24/7 זמין</h3>
-            <p>
-              השירות שלנו זמין בכל שעה, בכל יום. הזמינו מתי שנוח לכם וקבלו את
-              המשלוח בזמן שבחרתם.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fa fa-shield-alt"></i>
-            </div>
-            <h3>תשלום מאובטח</h3>
-            <p>
-              כל העסקאות מבוצעות באמצעות פרוטוקולי אבטחה מתקדמים. המידע שלכם
-              מוגן ומאובטח תמיד.
-            </p>
-          </div>
-        </div>
+      
+      <div class="form-field">
+        <label for="dbName">Database Name *</label>
+        <input type="text" 
+               class="form-control" 
+               id="dbName" />
+        <small>The name of your database (e.g., Grocery, Store)</small>
       </div>
+      
+      <button class="btn-custom-primary" onclick="connectDB()">
+        <i class="fas fa-link"></i> Connect
+      </button>
 
-      <!-- CTA Section -->
-      <div class="cta-section">
-        <h2>מוכנים להתחיל?</h2>
-        <p>הורידו את האפליקציה עכשיו והתחילו לחסוך זמן!</p>
-        <a href="download.html" class="cta-button">
-          <i class="fa fa-download"></i> הורד את האפליקציה
-        </a>
+      <div id="dbStatus" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- Base URL Section -->
+    <div class="section-card">
+      <h3><i class="fas fa-globe"></i> Base URL for QR Codes</h3>
+      
+      <div class="form-field">
+        <label for="baseUrl">Base URL</label>
+        <input type="text" 
+               class="form-control" 
+               id="baseUrl" 
+               value="https://hagrocery.co.il" />
+        <small>This URL will be used to generate download links and QR codes for each device</small>
       </div>
     </div>
 
-    <!-- Footer Section -->
-    <div class="footer-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <h5>קישורים שימושיים</h5>
-            <ul>
-              <li>
-                <a href="index.html"><i class="fa fa-home"></i> בית</a>
-              </li>
-              <li>
-                <a href="contactus.html"
-                  ><i class="fa fa-envelope"></i> צרו קשר</a
-                >
-              </li>
-              <li>
-                <a href="privacy-policy.html"
-                  ><i class="fa fa-shield"></i> מדיניות פרטיות</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-4">
-            <h5>צרו קשר</h5>
-            <ul>
-              <li>
-                <a href="https://wa.me/message/J5IJ37I2VZ4LE1" target="_blank">
-                  <i class="fa-brands fa-whatsapp"></i> Whatsapp
-                </a>
-              </li>
-              <li>
-                <a href="mailto:support@hagrocery.co.il">
-                  <i class="fa fa-envelope"></i> support@hagrocery.co.il
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-4">
-            <h5>עקבו אחרינו</h5>
-            <ul>
-              <li>
-                <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
-              </li>
-              <li>
-                <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
-              </li>
-            </ul>
-          </div>
+    <!-- Add Device Section -->
+    <div class="section-card">
+      <h3><i class="fas fa-plus-circle"></i> 2. Add Switch Device</h3>
+      
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="urlPath">URL Path *</label>
+          <input type="text" class="form-control" id="urlPath">
+          <small>e.g., tel-aviv, downtown, branch-1</small>
         </div>
-        <div class="copyright">
-          <p>Copyright © Automatic Grocery Ltd.</p>
+        
+        <div class="form-field">
+          <label for="shopName">Shop Name *</label>
+          <input type="text" class="form-control" id="shopName">
+          <small>e.g., Tel Aviv Branch</small>
+        </div>
+        
+        <div class="form-field">
+          <label for="deviceId">Device ID *</label>
+          <input type="text" class="form-control" id="deviceId">
+          <small>Unique identifier</small>
+        </div>
+        
+        <div class="form-field">
+          <label for="shellyUrl">SHELLY_URL</label>
+          <input type="text" class="form-control" id="shellyUrl">
+          <small>Shelly device URL</small>
+        </div>
+        
+        <div class="form-field">
+          <label for="shellyPass">SHELLY_PASSWORD</label>
+          <input type="text" class="form-control" id="shellyPass">
+          <small>Shelly password</small>
+        </div>
+        
+        <div class="form-field">
+          <label for="shellyEmail">SHELLY_EMAIL</label>
+          <input type="text" class="form-control" id="shellyEmail">
+          <small>Shelly account email</small>
         </div>
       </div>
+      
+      <button class="btn-custom-primary" onclick="addDevice()">
+        <i class="fas fa-plus"></i> Add Device
+      </button>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <!-- Devices List Section -->
+    <div class="section-card">
+      <h3><i class="fas fa-list"></i> 3. Devices</h3>
+      
+      <button class="btn-custom-secondary" onclick="loadDevices()">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
+
+      <div class="table-responsive" style="margin-top: 20px;">
+        <table>
+          <thead>
+            <tr>
+              <th>URL Path</th>
+              <th>Shop Name</th>
+              <th>Device ID</th>
+              <th>Email</th>
+              <th>QR Code</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="devices"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QR Code Modal -->
+<div id="qrModal" class="qr-modal">
+  <span class="close-modal" onclick="closeQRModal()">&times;</span>
+  <div class="qr-modal-content">
+    <h4 id="modalTitle"></h4>
+    <div id="modalQRCode"></div>
+    <p id="modalUrl" style="margin-top: 15px; color: #718096; word-break: break-all;"></p>
+    <button class="btn-custom-primary" onclick="downloadModalQR()">
+      <i class="fas fa-download"></i> Download QR Code
+    </button>
+  </div>
+</div>
+
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const API = "http://localhost:4000";
+
+// Show notification
+function showNotification(message, type = 'info') {
+  const bgColors = {
+    success: 'linear-gradient(135deg, #7ba72a 0%, #c4e538 100%)',
+    danger: 'linear-gradient(135deg, #e53e3e 0%, #fc8181 100%)',
+    info: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+  };
+
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${bgColors[type]};
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+  `;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
+
+async function connectDB() {
+  const mongoUrl = document.getElementById("mongoUrl").value;
+  const dbName = document.getElementById("dbName").value;
+
+  if (!mongoUrl || !dbName) {
+    showNotification('Please enter both MongoDB URL and Database Name', 'danger');
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API}/connect`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mongoUrl, dbName })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      document.getElementById("dbStatus").innerHTML = 
+        `<div class="status-badge"><i class="fas fa-check-circle"></i> Connected to: ${data.dbName}</div>`;
+      showNotification('Successfully connected to database!', 'success');
+      loadDevices();
+    } else {
+      showNotification('Connection failed: ' + (data.error || 'Unknown error'), 'danger');
+    }
+  } catch (error) {
+    showNotification('Connection error: ' + error.message, 'danger');
+  }
+}
+
+async function addDevice() {
+  const body = {
+    urlPath: document.getElementById('urlPath').value,
+    shopName: document.getElementById('shopName').value,
+    deviceId: document.getElementById('deviceId').value,
+    SHELLY_URL: document.getElementById('shellyUrl').value,
+    SHELLY_PASSWORD: document.getElementById('shellyPass').value,
+    SHELLY_EMAIL: document.getElementById('shellyEmail').value
+  };
+
+  // Validate
+  if (!body.urlPath || !body.shopName || !body.deviceId) {
+    showNotification('Please fill in URL Path, Shop Name, and Device ID', 'danger');
+    return;
+  }
+
+  try {
+    await fetch(`${API}/devices`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    // Clear inputs
+    document.getElementById('urlPath').value = '';
+    document.getElementById('shopName').value = '';
+    document.getElementById('deviceId').value = '';
+    document.getElementById('shellyUrl').value = '';
+    document.getElementById('shellyPass').value = '';
+    document.getElementById('shellyEmail').value = '';
+
+    showNotification('Device added successfully!', 'success');
+    loadDevices();
+  } catch (error) {
+    showNotification('Error adding device: ' + error.message, 'danger');
+  }
+}
+
+async function loadDevices() {
+  try {
+    const res = await fetch(`${API}/devices`);
+    const data = await res.json();
+
+    const tbody = document.getElementById('devices');
+    
+    if (data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #718096;">No devices found. Add your first device above.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = data.map(d => {
+      const baseUrl = document.getElementById('baseUrl').value || 'https://hagrocery.co.il';
+      const encodedCode = encodeURIComponent(d.urlPath);
+      const downloadUrl = `${baseUrl}/download/?code=${encodedCode}`;      
+      return `
+        <tr data-id="${d._id}">
+          <td><input value="${d.urlPath || ''}" onchange="updateDevice('${d._id}', 'urlPath', this.value)"></td>
+          <td><input value="${d.shopName || ''}" onchange="updateDevice('${d._id}', 'shopName', this.value)"></td>
+          <td><input value="${d.deviceId || ''}" onchange="updateDevice('${d._id}', 'deviceId', this.value)"></td>
+          <td><input value="${d.SHELLY_EMAIL || ''}" onchange="updateDevice('${d._id}', 'SHELLY_EMAIL', this.value)"></td>
+          <td class="qr-code-cell">
+            <img src="${API}/qr/${d.urlPath}" 
+                 class="qr-code-small" 
+                 alt="QR Code"
+                 onclick="showQRModal('${d.shopName}', '${downloadUrl}', '${d.urlPath}')">
+          </td>
+          <td>
+            <button class="btn-edit" onclick="editDevice('${d._id}')">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join("");
+  } catch (error) {
+    showNotification('Error loading devices: ' + error.message, 'danger');
+  }
+}
+
+async function updateDevice(id, field, value) {
+  try {
+    await fetch(`${API}/devices/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ [field]: value })
+    });
+    
+    showNotification(`${field} updated successfully!`, 'success');
+  } catch (error) {
+    showNotification('Error updating device: ' + error.message, 'danger');
+  }
+}
+
+function editDevice(id) {
+  showNotification('Edit the fields directly in the table. Changes are saved automatically.', 'info');
+}
+
+function showQRModal(shopName, url, urlPath) {
+  const modal = document.getElementById('qrModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalQRCode = document.getElementById('modalQRCode');
+  const modalUrl = document.getElementById('modalUrl');
+  
+  modalTitle.textContent = shopName;
+  modalUrl.textContent = url;
+  modalQRCode.innerHTML = '';
+  
+  new QRCode(modalQRCode, {
+    text: url,
+    width: 256,
+    height: 256,
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+  
+  modal.style.display = 'flex';
+  modal.dataset.urlPath = urlPath;
+}
+
+function closeQRModal() {
+  document.getElementById('qrModal').style.display = 'none';
+}
+
+function downloadModalQR() {
+  const canvas = document.querySelector('#modalQRCode canvas');
+  const urlPath = document.getElementById('qrModal').dataset.urlPath;
+  
+  if (!canvas) {
+    showNotification('Unable to download QR code', 'danger');
+    return;
+  }
+
+  const link = document.createElement('a');
+  link.download = `qrcode-${urlPath}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  showNotification('QR Code downloaded successfully!', 'success');
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById('qrModal');
+  if (event.target === modal) {
+    closeQRModal();
+  }
+}
+
+// Add animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+`;
+document.head.appendChild(style);
+</script>
+
+</body>
 </html>

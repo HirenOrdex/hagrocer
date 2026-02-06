@@ -1,0 +1,101 @@
+[{
+  "_id": {
+    "$oid": "682ed91439b61ab6159cc074"
+  },
+  "phone": "0546231164",
+  "name": "pini",
+  "last_name": "volf",
+  "birthday": {
+    "$date": "1980-02-12T00:00:00.000Z"
+  },
+  "identification_id": "123123123123",
+  "email": "pini@gmail.com",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2025-05-22T07:58:12.930Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T07:58:12.930Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682eeafba902b696e64b8c3d"
+  },
+  "phone": "0546231168",
+  "name": "Sujal",
+  "last_name": "Prajapati",
+  "birthday": {
+    "$date": "2000-10-09T00:00:00.000Z"
+  },
+  "identification_id": "5555555",
+  "email": "abc@gmail.com",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2025-05-22T09:14:35.778Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T09:16:08.830Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682efe133472fcadbef9eba4"
+  },
+  "phone": "0077777773",
+  "name": "Dip",
+  "last_name": "Order",
+  "email": "",
+  "isDeleted": true,
+  "createdAt": {
+    "$date": "2025-05-22T10:36:03.323Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T10:50:41.821Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68875555c3d5fb7d8dc6abe4"
+  },
+  "phone": "0546231162",
+  "name": "pini",
+  "last_name": "volf",
+  "birthday": {
+    "$date": "1980-02-12T00:00:00.000Z"
+  },
+  "identification_id": "123123123124",
+  "email": "hi@gmail.com",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2025-07-28T10:47:49.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-28T10:47:49.532Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6891c1790af79de662cfb696"
+  },
+  "phone": "0546231167",
+  "name": "pini",
+  "last_name": "volf",
+  "birthday": {
+    "$date": "1980-02-12T00:00:00.000Z"
+  },
+  "identification_id": "123123123123",
+  "email": "pini333@gmail.com",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2025-08-05T08:31:53.560Z"
+  },
+  "updatedAt": {
+    "$date": "2025-08-05T08:31:53.560Z"
+  },
+  "__v": 0
+}]

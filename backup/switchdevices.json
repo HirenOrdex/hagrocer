@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "687e1a56ab4c4cb947ad91b4"
+  },
+  "urlPath": "אורני",
+  "shopName": "אורני",
+  "deviceId": "34cdb07d0850",
+  "SHELLY_URL": "https://shelly-186-eu.shelly.cloud/v2/devices/api/set/switch",
+  "SHELLY_PASSWORD": "b950f0ba546f6e9efb5093fd88c7460ba5d2f80e",
+  "SHELLY_EMAIL": "gelmanavi@gmail.com"
+}]
